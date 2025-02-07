@@ -154,6 +154,7 @@ class house_transform_bk(house_transform):
         grid_line_width = 0.3
 
         background_fill_color = "ivory"
+        background_fill_alpha = 1
         grid_line_color = "darkslategray"
         axes_color = (128, 128, 128) #"darkslategray"
 
@@ -177,13 +178,13 @@ class house_transform_bk(house_transform):
         p.add_layout(LinearAxis(), 'above')
 
         p.background_fill_color = background_fill_color
-        p.background_fill_alpha = 1
-        p.xgrid.grid_line_width =  grid_line_width
-        p.xgrid.grid_line_color =  grid_line_color
-        p.xgrid.grid_line_alpha =  grid_alpha
-        p.ygrid.grid_line_width =  grid_line_width
-        p.ygrid.grid_line_color =  grid_line_color
-        p.ygrid.grid_line_alpha =  grid_alpha
+        p.background_fill_alpha = background_fill_alpha
+        p.xgrid.grid_line_width = grid_line_width
+        p.xgrid.grid_line_color = grid_line_color
+        p.xgrid.grid_line_alpha = grid_alpha
+        p.ygrid.grid_line_width = grid_line_width
+        p.ygrid.grid_line_color = grid_line_color
+        p.ygrid.grid_line_alpha = grid_alpha
         p.min_border_left = 40
         p.title.text_font_size = '14pt'
 
@@ -245,13 +246,13 @@ class house_transform_bk(house_transform):
 
 
         q.background_fill_color = background_fill_color
-        q.background_fill_alpha = 0.5
-        q.xgrid.grid_line_width =  grid_line_width
-        q.xgrid.grid_line_color =  grid_line_color
-        q.xgrid.grid_line_alpha =  grid_alpha
-        q.ygrid.grid_line_width =  grid_line_width
-        q.ygrid.grid_line_color =  grid_line_color
-        q.ygrid.grid_line_alpha =  grid_alpha
+        q.background_fill_alpha = background_fill_alpha
+        q.xgrid.grid_line_width = grid_line_width
+        q.xgrid.grid_line_color = grid_line_color
+        q.xgrid.grid_line_alpha = grid_alpha
+        q.ygrid.grid_line_width = grid_line_width
+        q.ygrid.grid_line_color = grid_line_color
+        q.ygrid.grid_line_alpha = grid_alpha
         q.min_border_left = 40
         q.title.text_font_size = '14pt'
 
