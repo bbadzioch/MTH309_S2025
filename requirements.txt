@@ -1,2 +1,5 @@
 sympy
 numpy
+matplotlib
+seaborn
+bokeh
