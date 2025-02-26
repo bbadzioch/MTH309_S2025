@@ -7,7 +7,7 @@ import requests
 def add_noise(msg, p):
     msg = np.array(msg, dtype ='uint8')
     noisy = np.logical_xor(msg, np.random.rand(msg.size) < p)
-    return list(np.array(noisy, dtype='uint8'))
+    return np.array(noisy, dtype='uint8')
     
 def hamming_encode(msg):
     msg = np.array(msg, dtype ='uint8')
@@ -18,7 +18,7 @@ def hamming_encode(msg):
     he_r, he_c = he.shape
     msg = msg.reshape(msg.size//he_c, he_c).T
     encoded = np.dot(he, msg) % 2
-    return list(encoded.T.ravel())
+    return encoded.T.ravel()
  
 def hamming_decode(msg):
     msg = np.array(msg, dtype ='uint8')
@@ -36,7 +36,7 @@ def hamming_decode(msg):
                 break
         decoded.extend(list(msg[:4, i]))
     
-    return list(np.array(decoded, dtype='uint8'))
+    return np.array(decoded, dtype='uint8')
  
 def recover_from_coded(msg):
     r = []
@@ -46,7 +46,7 @@ def recover_from_coded(msg):
 
 
 def text2bits(s):
-    return list(np.unpackbits(np.array([ord(c) for c in s], dtype='uint8')))
+    return np.unpackbits(np.array([ord(c) for c in s], dtype='uint8'))
 
 
 def bits2text(b):
@@ -85,7 +85,7 @@ def color_print(no_corr, corr, p):
 
     
 def text_compare(text, p):
-    t_arr = np.array([ord(c) for c in text], dtype = 'uint8')
+    t_arr = np.array([n if 0 <= (n:=ord(c)) <= 255 else 0 for c in text], dtype = 'uint8')
     bit_arr = np.unpackbits(t_arr)
     encoded = np.array(hamming_encode(bit_arr), dtype='uint8')
     noisy = np.array(add_noise(encoded, p), dtype='uint8')
